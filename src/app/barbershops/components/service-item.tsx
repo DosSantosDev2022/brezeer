@@ -13,10 +13,10 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect, useMemo, useState } from "react"
 import { toast } from "sonner"
-import { saveBooking } from "../[id]/actions/save-bookings"
-import { getDayBookings } from "../[id]/actions/get-day-bookings"
+import { saveBooking } from "../[id]/_actions/save-bookings"
+import { getDayBookings } from "../[id]/_actions/get-day-bookings"
 import BookingInfo from "@/components/booking-inf"
-import { generateDayTimeList } from "@/app/barbershops/[id]/helpers/hours"
+import { generateDayTimeList } from "@/app/barbershops/[id]/_helpers/hours"
 
 interface ServiceItemProps {
   barbershop : Barbershop
