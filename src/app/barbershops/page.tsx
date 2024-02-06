@@ -3,6 +3,7 @@ import {BarberShopItem} from "@/app/(home)/components/barbershop-item";
 import {Header} from "@/components/header";
 import { db } from "@/lib/prisma";
 import {Search} from "@/app/(home)/components/search";
+import { Barbershop } from "@prisma/client";
 
 interface BarbershopsPageProps {
   searchParams: {
@@ -38,7 +39,7 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
         <h1 className="text-gray-400 font-bold text-xs uppercase">Resultados para &quot;{searchParams.search}&quot;</h1>
 
         <div className="grid grid-cols-2 gap-4">
-          {barbershops.map((barbershop) => (
+          {barbershops.map((barbershop : Barbershop) => (
             <div key={barbershop.id} className="w-full">
               <BarberShopItem barbershop={barbershop} />
             </div>
