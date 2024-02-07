@@ -5,10 +5,18 @@ import { BookingItem } from "@/components/booking-item";
 import { BarberShopItem } from "./components/barbershop-item";
 import { db } from "@/lib/prisma";
 import { Hero } from "./components/hero";
-import { Barbershop } from "@prisma/client";
+import { Barbershop, Booking } from "@prisma/client";
 
 
 export default async function Home() {
+  const latestBooking : Booking= await db.booking.findFirst({
+    orderBy: { date : 'desc'},
+    include: {
+      service: true,
+      barbershop: true
+    }
+  })
+  
   const barbershops : Barbershop[] = await db.barbershop.findMany({});
   
   return (
@@ -22,8 +30,8 @@ export default async function Home() {
     </div>
 
     <div className="px-5 mt-6">
-      <h2 className="text-xs mb-3 uppercase text-gray-400 font-bold">Agendamentos</h2>
-      <BookingItem />
+      <h2 className="text-xs mb-3 uppercase text-gray-400 font-bold">último agendamento</h2>
+      {latestBooking && <BookingItem booking={latestBooking} />} 
     </div>
 
     <div className="mt-6">

@@ -4,6 +4,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/prisma";
 import { BookingItem } from "@/components/booking-item";
+import { Booking } from "@prisma/client";
 
 
 export default async function BookingsPage() {
@@ -51,7 +52,7 @@ export default async function BookingsPage() {
             <>
               <h2 className="text-gray-400 uppercase font-bold text-sm mb-3">Confirmados</h2>
               <div className="flex flex-col gap-3">
-                {confirmedBookings.map((booking) => (
+                {confirmedBookings.map((booking : Booking) => (
                   <BookingItem key={booking.id} booking={booking}  />
                 ))}
               </div>
@@ -63,7 +64,7 @@ export default async function BookingsPage() {
             <>
               <h2 className="text-gray-400 uppercase font-bold text-sm mt-6 mb-3">Finalizados</h2>
               <div className="flex flex-col gap-3">
-                {finishedBookings.map((booking) => (
+                {finishedBookings.map((booking : Booking) => (
                   <BookingItem key={booking.id} booking={booking}  />
                 ))}
               </div>
