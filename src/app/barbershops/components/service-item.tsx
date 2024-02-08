@@ -124,7 +124,7 @@ export function ServiceItem({ service, barbershop, isAuthenticated} : ServiceIte
   }, [date, dayBookings]);
 
   return (
-    <Card>
+    <Card className="w-full lg:w-[369px] ">
       <CardContent className="p-3 w-full">
         <div className="flex gap-4 items-center w-full">
           <div className="relative min-h-[110px] min-w-[110px] max-h-[110px] max-w-[110px]">
@@ -155,7 +155,7 @@ export function ServiceItem({ service, barbershop, isAuthenticated} : ServiceIte
                   </Button>
                 </SheetTrigger>
 
-                <SheetContent className="p-0">
+                <SheetContent className="p-0 overflow-auto scrollbar scrollbar-thumb-zinc-900">
                   <SheetHeader className="text-left px-5 py-6 border-b border-solid border-secondary">
                     <SheetTitle>Fazer Reserva</SheetTitle>
                   </SheetHeader>
@@ -222,7 +222,7 @@ export function ServiceItem({ service, barbershop, isAuthenticated} : ServiceIte
                     />
                   </div>
 
-                  <SheetFooter className="px-5">
+                  <SheetFooter className="px-5 py-6">
                     <Button onClick={handleBookingSubmit} disabled={!hour || !date || submitIsLoading}>
                       {submitIsLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                       Confirmar reserva

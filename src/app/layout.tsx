@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scrollbar scrollbar-thumb-zinc-900 ]" lang="en">
+    <html className="scrollbar scrollbar-thumb-zinc-900 " lang="en">
       <body className={`${inter.className} dark `}>
         <AuthProvider>
           <Header/>

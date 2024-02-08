@@ -1,4 +1,4 @@
-import { Header } from "@/components/header";
+
 
 import { Search } from "./components/search";
 import { BookingItem } from "@/components/booking-item";
@@ -22,8 +22,6 @@ export default async function Home() {
 
   return (
     <div>
-      
-      <Header />
       <div className="flex flex-col lg:flex-row w-full bg-[url('/bg-hero.png')] bg-cover lg:h-[460px] ">
         <div className="flex flex-col w-full">
           <Hero />

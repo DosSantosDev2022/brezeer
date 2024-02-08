@@ -4,7 +4,8 @@ import { ServiceItem } from "@/app/barbershops/components/service-item";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Service } from "@prisma/client";
-import { Button } from "@/components/ui/button";
+import { SelectedSection } from "../components/selectedSections";
+import { Informations } from "../components/informations";
 
 interface BarbershopDetailsPageProps {
   params: {
@@ -36,19 +37,25 @@ export default async function BarbershopDetailsPage({ params }: BarbershopDetail
   return (
     <div>
       <BarbershopInfo barbershop={barbershop} />
-      <div className="flex items-center justify-start gap-3 px-5 py-6 ">
-        <Button>Serviços</Button>
-        <Button>Informações</Button>
+
+      <SelectedSection />
+      <div className="flex items-start justify-center gap-2 w-full">
+        <div className="px-5 py-6  flex flex-wrap items-center justify-center gap-4 ">
+          {barbershop.services.map((service: Service) => (
+            <ServiceItem
+              key={service.id}
+              barbershop={barbershop}
+              service={service}
+              isAuthenticated={!!session?.user}
+            />
+          ))}
+        </div>
+        <div className="px-5 py-6 w-full hidden  lg:flex items-center justify-center">
+          <Informations barbershop={barbershop} />
+        </div>
+        
       </div>
-      <div className="px-5 flex flex-col lg:flex-row lg:flex-wrap items-center justify-start gap-4 py-6">
-        {barbershop.services.map((service: Service) => (
-          <ServiceItem key={service.id}
-            barbershop={barbershop}
-            service={service}
-            isAuthenticated={!!session?.user}
-          />
-        ))}
-      </div>
+
     </div>
   )
 }
