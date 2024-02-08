@@ -4,6 +4,7 @@ import "./globals.css";
 import AuthProvider from "./providers/auth";
 import { Toaster } from "@/components/ui/sonner"
 import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html className="scrollbar scrollbar-thumb-zinc-900 ]" lang="en">
       <body className={`${inter.className} dark `}>
         <AuthProvider>
+          <Header/>
           {children}
           <Toaster/>
           <Footer/>

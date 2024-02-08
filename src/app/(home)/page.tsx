@@ -53,7 +53,7 @@ export default async function Home() {
           <Carousel>
             <CarouselContent className="w-full flex gap-3 ">
               {barbershops.map((barbershop) => (
-                <CarouselItem key={barbershop.id} className="lg:basis-[167px] basis-[167px]">
+                <CarouselItem key={barbershop.id} className="">
                   <BarberShopItem  barbershop={barbershop} />
                 </CarouselItem>
               ))}
