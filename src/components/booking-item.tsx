@@ -45,7 +45,7 @@ export function BookingItem({ booking }: BookingItensProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Card>
+        <Card className="lg:  w-[440px] ">
           <CardContent className="p-5 flex justify-between py-0">
             <div className="flex flex-col gap-2 py-5">
               <Badge variant={isBookingConfirmed ? "default" : "secondary"} className="w-fit">

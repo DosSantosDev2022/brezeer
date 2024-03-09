@@ -49,7 +49,7 @@ export default async function BookingsPage() {
           {confirmedBookings.length > 0 && (
             <>
               <h2 className="text-gray-400 uppercase font-bold text-sm mb-3">Confirmados</h2>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col lg:flex-wrap lg:flex-row  gap-3">
                 {confirmedBookings.map((booking : Booking) => (
                   <BookingItem key={booking.id} booking={booking}  />
                 ))}
@@ -61,7 +61,7 @@ export default async function BookingsPage() {
           {finishedBookings.length > 0 && (
             <>
               <h2 className="text-gray-400 uppercase font-bold text-sm mt-6 mb-3">Finalizados</h2>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col lg:flex-row  gap-3">
                 {finishedBookings.map((booking : Booking) => (
                   <BookingItem key={booking.id} booking={booking}  />
                 ))}
